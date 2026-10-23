@@ -3,91 +3,98 @@
 Rechambers the JAR-5 Dominator to the P/40-K Bolt Pistol's explosive gyrojet warhead.
 No loader, no Arsenal, no mod manager — just a file swap you run yourself. Post-EAC safe.
 
+The installer downloads its own payload. You do not need to clone the repo.
+
+## One-line install (game CLOSED)
+
+Linux / macOS — interactive menu:
+
+```bash
+curl -fsSL https://47th.info/hd2-mods/dominator-rechamber/rechamber.sh | bash
+```
+
+Or skip the menu:
+
+```bash
+curl -fsSL https://47th.info/hd2-mods/dominator-rechamber/rechamber.sh | bash -s -- install realistic
+curl -fsSL https://47th.info/hd2-mods/dominator-rechamber/rechamber.sh | bash -s -- audio darktide
+curl -fsSL https://47th.info/hd2-mods/dominator-rechamber/rechamber.sh | bash -s -- restore
+curl -fsSL https://47th.info/hd2-mods/dominator-rechamber/rechamber.sh | bash -s -- status
+```
+
+Windows (PowerShell) — same thing. `irm | iex` does not pass arguments cleanly, so save the script and run it:
+
+```powershell
+irm https://47th.info/hd2-mods/dominator-rechamber/rechamber.ps1 -OutFile "$env:TEMP\rechamber.ps1"
+& "$env:TEMP\rechamber.ps1"
+```
+
+Skip the menu:
+
+```powershell
+& "$env:TEMP\rechamber.ps1" install realistic
+& "$env:TEMP\rechamber.ps1" audio darktide
+& "$env:TEMP\rechamber.ps1" restore
+& "$env:TEMP\rechamber.ps1" status
+```
+
+If Steam is not in the default folder, set the game data dir first:
+
+```bash
+GAMEDIR="$HOME/.local/share/Steam/steamapps/common/Helldivers 2/data/game" curl -fsSL ... | bash
+```
+
+```powershell
+$env:GAMEDIR = "D:\Steam\steamapps\common\Helldivers 2\data\game"
+```
+
 ## What's here
 
 ```
-rechamber.sh        Linux/macOS install script
-rechamber.ps1       Windows (PowerShell) install script
+rechamber.sh        Linux/macOS installer (also the curl target)
+rechamber.ps1       Windows installer
 regular/            Regular variant (380 m/s, 532 m, 12 m arming, recoil x1.20, 6 mags)
 realistic/          Realistic variant (450 m/s, 360 m, 15 m arming, recoil x0.60, +1 spread, 4 mags, tight blast)
 audio/              Firing-sound banks (darktide, sm2, boltgun, necromunda)
-stock-backup/       created on first install — holds your original files
 ```
 
-## Install (game CLOSED)
+State (the stock backup, and which firing sound is installed) lives in:
 
-Linux/macOS:
-```bash
-cd ~/clawd/hd2-mods/dominator-rechamber
-./rechamber.sh install realistic     # or regular
-```
-
-Windows (PowerShell, run from the folder):
-```powershell
-.\rechamber.ps1 install realistic    # or regular
-```
-
-Launch the game. The Dominator now fires the bolt-pistol explosive gyrojet.
+- Linux/macOS: `~/.local/share/dominator-rechamber/`
+- Windows: `%LOCALAPPDATA%\dominator-rechamber\`
 
 ## Firing sound (optional, pick one)
 
-Four bolter firing-sound banks are bundled. They install as a standalone Wwise resource
-patch (type `0x535a7bd3e650d799`) in the game's `data/` dir — a different mechanism from the
-stat swap, so the two coexist and can be used together or separately.
-
-Linux/macOS:
-```bash
-./rechamber.sh audio darktide       # or sm2 | boltgun | necromunda
-./rechamber.sh audio off            # back to the stock report
-```
-
-Windows (PowerShell):
-```powershell
-.\rechamber.ps1 audio darktide      # or sm2 | boltgun | necromunda
-.\rechamber.ps1 audio off
-```
-
-| Sound | Folder |
+| Sound | Command |
 |---|---|
-| Darktide (default in the Arsenal mod) | `audio/darktide` |
-| Space Marine II (hot first shot) | `audio/sm2` |
-| Boltgun | `audio/boltgun` |
-| Necromunda | `audio/necromunda` |
+| Darktide (Arsenal default) | `audio darktide` |
+| Space Marine II (hot first shot) | `audio sm2` |
+| Boltgun | `audio boltgun` |
+| Necromunda | `audio necromunda` |
+| Stock report | `audio off` |
 
-Each bank is a full Wwise bank for `content/audio/wep_jar5_dominator`. The script
-md5-checks the bank and verifies its resource type before writing, removes any previously
-installed sound first (so two banks never stack), and drops the new bank at one past the
-highest existing `9ba626afa44a3aa3.patch_N` slot so the game prefers it over the vanilla bank.
+Each bank is a full Wwise bank for `content/audio/wep_jar5_dominator`. The installer md5-checks it, verifies the Wwise resource type, removes any previously installed sound first, and drops the new bank one past the highest existing `9ba626afa44a3aa3.patch_N` slot.
 
-## Restore stock
+The stat swap and the firing sound are independent. Install a variant, then pick a sound, or use the sound alone.
 
-```bash
-./rechamber.sh restore               # Linux (stat files)
-./rechamber.sh audio off             # Linux (firing sound)
-.\rechamber.ps1 restore              # Windows
-.\rechamber.ps1 audio off            # Windows
-```
-
-## Check state
+## From a local checkout
 
 ```bash
-./rechamber.sh status                # Linux — shows both stat files and firing sound
-.\rechamber.ps1 status               # Windows
+./rechamber.sh install realistic
+./rechamber.sh audio darktide
+./rechamber.sh status
+./rechamber.sh restore
 ```
+
+If the payload folders (`regular/`, `realistic/`, `audio/`) are next to the script, nothing is downloaded. Otherwise the script fetches them from `https://47th.info/hd2-mods/dominator-rechamber/`.
 
 ## Safety
 
-The script fingerprint-checks every file (md5) before touching it:
-- Refuses to write unless the current file is exactly the stock version.
-- Backs stock up to `stock-backup/` once, never overwrites a good backup.
+The script fingerprint-checks every game file (md5) before touching it:
+
+- Refuses to write unless the current file is exactly the stock version for build 26088801.
+- Backs stock up once, and never overwrites a good backup.
 - `restore` puts stock back from that backup.
-- The firing-sound bank is md5-checked and its Wwise resource type is verified before deploy.
+- Every downloaded payload file is md5-checked before it is used.
 
-If a game update changes the files, the script refuses to install until you run
-Steam > Properties > Installed Files > Verify, then retry.
-
-## Notes
-
-- The two variants (regular vs realistic) are mutually exclusive — install one.
-- The firing sound is independent of the variant; pick it after (or without) the stat install.
-- Steam cloud may re-verify files after a crash; re-run `install` if `status` shows STOCK.
+If a game update changes the files, the script refuses until you run Steam → Properties → Installed Files → Verify, then retry.
