@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# JAR-5 Dominator Rechambered — manual swap (no loader, no Arsenal).
+# JAR-5 Dominator Rechambered v4.0.0 — manual swap (no loader, no Arsenal).
 #
 # One-line install (Linux/macOS), game CLOSED:
 #   curl -fsSL https://47th.info/hd2-mods/dominator-rechamber/rechamber.sh | bash

@@ -1,4 +1,4 @@
-# JAR-5 Dominator Rechambered — manual swap (Windows / PowerShell). No loader, no Arsenal.
+# JAR-5 Dominator Rechambered v4.0.0 — manual swap (Windows / PowerShell). No loader, no Arsenal.
 #
 # One-line install (run in PowerShell, game CLOSED):
 #   irm https://47th.info/hd2-mods/dominator-rechamber/rechamber.ps1 | iex

@@ -1,4 +1,4 @@
-# JAR-5 Dominator Rechambered — manual install
+# JAR-5 Dominator Rechambered v4.0.0 — manual install
 
 Rechambers the JAR-5 Dominator to the P/40-K Bolt Pistol's explosive gyrojet warhead.
 No loader, no Arsenal, no mod manager — just a file swap you run yourself. Post-EAC safe.
