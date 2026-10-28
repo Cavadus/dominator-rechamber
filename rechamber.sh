@@ -209,7 +209,7 @@ prompt_variant() {
   echo "    1) regular   (380 m/s, 532 m, recoil x1.20, 6 mags)"
   echo "    2) realistic (450 m/s, 360 m, recoil x0.60, +1 spread, 4 mags)"
   while [ "$n" != "1" ] && [ "$n" != "2" ]; do
-    printf "  choice [1/2]: "; read -r n || true
+    printf "  choice [1/2]: "; read -r n < /dev/tty || true
   done
   [ "$n" = "1" ] && echo regular || echo realistic
 }
@@ -219,7 +219,7 @@ prompt_sound() {
   echo "  Firing sound:"
   echo "    1) darktide (default)   2) sm2   3) boltgun   4) necromunda   5) off"
   while :; do
-    printf "  choice [1-5]: "; read -r n || true
+    printf "  choice [1-5]: "; read -r n < /dev/tty || true
     case "$n" in 1) echo darktide; return;; 2) echo sm2; return;; 3) echo boltgun; return;; 4) echo necromunda; return;; 5) echo off; return;; esac
   done
 }
@@ -236,7 +236,7 @@ if [ -z "$action" ]; then
   echo "  4) status"
   n=""
   while :; do
-    printf "  choice [1-4]: "; read -r n || true
+    printf "  choice [1-4]: "; read -r n < /dev/tty || true
     case "$n" in 1) action=install; break;; 2) action=audio; break;; 3) action=restore; break;; 4) action=status; break;; esac
   done
 fi

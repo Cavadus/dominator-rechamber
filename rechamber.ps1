@@ -22,7 +22,7 @@ $ScriptDir = if ($PSScriptRoot) { $PSScriptRoot } else { (Get-Location).Path }
 $BaseUrl   = if ($env:BASE_URL)  { $env:BASE_URL }  else { 'https://47th.info/hd2-mods/dominator-rechamber' }
 $StateDir  = if ($env:STATE_DIR) { $env:STATE_DIR } else { Join-Path $env:LOCALAPPDATA 'dominator-rechamber' }
 $CacheDir  = Join-Path $StateDir 'cache'
-$GameDir   = if ($env:GAMEDIR)  { $env:GAMEDIR }  else { Join-Path $env:ProgramFiles(x86) 'Steam\steamapps\common\Helldivers 2\data\game' }
+$GameDir   = if ($env:GAMEDIR)  { $env:GAMEDIR }  else { Join-Path ${env:ProgramFiles(x86)} 'Steam\steamapps\common\Helldivers 2\data\game' }
 $DataDir   = if ($env:DATADIR)  { $env:DATADIR }  else { Split-Path -Parent $GameDir }
 $BackupDir = Join-Path $StateDir 'stock-backup'
 $AudioState = Join-Path $StateDir '.audio-state'
@@ -135,9 +135,9 @@ function Restore-Rechamber {
 function Show-Status {
     foreach ($f in @('generated_projectile_settings.dl_bin','generated_entities.dl_bin','generated_explosion_settings.dl_bin','generated_damage_settings.dl_bin')) {
         $md = Get-Md5 (Join-Path $GameDir $f)
-        if ($null -eq $md) { Write-Host "$f: MISSING" }
-        elseif ($md -eq $StockMd5[$f]) { Write-Host "$f: STOCK" }
-        else { Write-Host "$f: MODIFIED ($md)" }
+        if ($null -eq $md) { Write-Host "${f}: MISSING" }
+        elseif ($md -eq $StockMd5[$f]) { Write-Host "${f}: STOCK" }
+        else { Write-Host "${f}: MODIFIED ($md)" }
     }
     if (Test-Path $AudioState) { Write-Host "firing sound: $(Get-Content $AudioState)" }
     else { Write-Host 'firing sound: STOCK' }
