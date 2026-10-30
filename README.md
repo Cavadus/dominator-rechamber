@@ -9,9 +9,8 @@ Arsenal, no exit-and-relaunch dance — enable, deploy, launch.
 
 ## Install
 
-1. Install [Ordnance](https://github.com/Cavadus/ordnance).
-2. Grab one of the v4.1.0 archives from Nexus Mods or Ayaka (see below), and add it to Ordnance.
-3. Enable the variant you want, pick an optional firing sound, and Deploy.
+1. Grab one of the v4.1.0 archives from the [latest release](https://github.com/Cavadus/dominator-rechamber/releases/latest), and add it to Ordnance.
+2. Enable the variant you want, pick an optional firing sound, and Deploy.
 
 ## Variants
 
