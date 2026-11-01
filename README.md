@@ -7,7 +7,15 @@ the rechamber is a set of offset-based edits to the game's `.dl_bin` tables, app
 by [Ordnance](https://github.com/Cavadus/ordnance) at deploy time. No loader, no
 Arsenal, no exit-and-relaunch dance — enable, deploy, launch.
 
+## Manual file swap (no Ordnance)
+
+Prefer to skip Ordnance? The v4.0.0 release is the post-EAC manual swap: grab a
+zip from [the v4.0.0 release](https://github.com/Cavadus/dominator-rechamber/releases/tag/v4.0.0),
+close the game, back up the two patch files in the data folder, and swap in the
+ones from the archive. Same rechamber, no manager required.
+
 ## Install
+
 
 1. Grab one of the v4.1.0 archives from the [latest release](https://github.com/Cavadus/dominator-rechamber/releases/latest), and add it to Ordnance.
 2. Enable the variant you want, pick an optional firing sound, and Deploy.
