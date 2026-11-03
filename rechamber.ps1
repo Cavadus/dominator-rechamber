@@ -1,4 +1,4 @@
-# JAR-5 Dominator Rechambered v4.0.0 — manual swap (Windows / PowerShell). No loader, no Arsenal.
+# JAR-5 Dominator Rechambered — manual swap (Windows / PowerShell). No loader, no Arsenal.
 #
 # One-line install (run in PowerShell, game CLOSED):
 #   irm https://47th.info/hd2-mods/dominator-rechamber/rechamber.ps1 | iex
@@ -27,35 +27,33 @@ $DataDir   = if ($env:DATADIR)  { $env:DATADIR }  else { Split-Path -Parent $Gam
 $BackupDir = Join-Path $StateDir 'stock-backup'
 $AudioState = Join-Path $StateDir '.audio-state'
 
-# Stock MD5 fingerprints (game build 26088801). Refuse to touch anything else.
+# Stock MD5 fingerprints (game build 26251122). Refuse to touch anything else.
 $StockMd5 = @{
-    'generated_projectile_settings.dl_bin' = 'fa3492533784d2af45d7d8f81748a5a4'
-    'generated_entities.dl_bin'              = 'fecf622cff80bea7456c797b9820028e'
-    'generated_explosion_settings.dl_bin'    = '4b239877910a43a3e520cca8eb67354f'
-    'generated_damage_settings.dl_bin'       = 'd274494df64e8476ed8f1b136c5e3750'
+    'generated_projectile_settings.dl_bin' = '65b3de2ac65424fd6769ccbde09865b3'
+    'generated_entities.dl_bin'              = '501cd6a9c7d7024fd8c42abe18e29ec7'
+    'generated_explosion_settings.dl_bin'    = 'e218ea5d15451d63ccf1e607b1884d38'
+    'generated_damage_settings.dl_bin'       = 'ccad374a99d3fb0ae85225d21d8d3ffa'
 }
 
 # Expected md5 of every payload file, keyed by its path under BaseUrl.
 $ModMd5 = @{
-    'regular/generated_projectile_settings.dl_bin'   = 'ebaa97d7c9eb3994c3dfe322dc8152a1'
-    'regular/generated_entities.dl_bin'              = '340cafa7747679a49817b4f0b278a630'
-    'regular/generated_damage_settings.dl_bin'       = 'a9976989faef32d41fc4e2645a95653f'
-    'realistic/generated_projectile_settings.dl_bin' = 'f8d79363bfe900aa150d28062e40d3b8'
-    'realistic/generated_entities.dl_bin'            = '7f2b29f73fe6b2f3fea91f57a9bab89d'
-    'realistic/generated_explosion_settings.dl_bin'  = 'bccc297ce41bc4421cf3851244f0f2d4'
-    'realistic/generated_damage_settings.dl_bin'     = 'a9976989faef32d41fc4e2645a95653f'
-    'audio/boltgun/9ba626afa44a3aa3.patch_0'         = '99e150d4dec70bf9923ec553239f2984'
-    'audio/darktide/9ba626afa44a3aa3.patch_0'        = 'a99dd188ea578db9b16e9b4160bacc20'
-    'audio/necromunda/9ba626afa44a3aa3.patch_0'      = 'ddc98df8d595b9ef0ea3aba8ce1149ef'
-    'audio/sm2/9ba626afa44a3aa3.patch_0'             = 'b28b01d84cf3f453aaa6eb25dae902ad'
+    'regular/generated_projectile_settings.dl_bin'   = 'f9ec2dddc25191754213f2b4f700986b'
+    'regular/generated_entities.dl_bin'              = 'b2bcfd06abfdf9db34b249fb8a73aa4d'
+    'realistic/generated_projectile_settings.dl_bin' = '1e9481824c59ad4ae74c99d9492d29d5'
+    'realistic/generated_entities.dl_bin'            = 'bc00b862f973c57e3850b278a970def1'
+    'realistic/generated_explosion_settings.dl_bin'  = 'b4f518ab1306c12af045975f1d03c6d9'
+    'audio/boltgun/9ba626afa44a3aa3.patch_0'         = '216b992676c3aae91d6ae2d92fe21974'
+    'audio/darktide/9ba626afa44a3aa3.patch_0'        = 'd341fd2a589ca39c419a55c432134ad8'
+    'audio/necromunda/9ba626afa44a3aa3.patch_0'      = '9d4bcfc79ff763849cd720d4fa425360'
+    'audio/sm2/9ba626afa44a3aa3.patch_0'             = '134fb85f4e1cda4d2b1df6422e13a747'
 }
 
 # Firing-sound banks (Wwise, type 0x535a7bd3e650d799), keyed by variant.
 $AudioMd5 = @{
-    'darktide'   = 'a99dd188ea578db9b16e9b4160bacc20'
-    'sm2'        = 'b28b01d84cf3f453aaa6eb25dae902ad'
-    'boltgun'    = '99e150d4dec70bf9923ec553239f2984'
-    'necromunda' = 'ddc98df8d595b9ef0ea3aba8ce1149ef'
+    'darktide'   = 'd341fd2a589ca39c419a55c432134ad8'
+    'sm2'        = '134fb85f4e1cda4d2b1df6422e13a747'
+    'boltgun'    = '216b992676c3aae91d6ae2d92fe21974'
+    'necromunda' = '9d4bcfc79ff763849cd720d4fa425360'
 }
 $AudioSlot = '9ba626afa44a3aa3'
 $AudioType = '99d750e6d37b5a53'
@@ -84,7 +82,7 @@ function Get-Payload([string]$Rel) {
 }
 
 function Get-Files([string]$V) {
-    $f = @('generated_projectile_settings.dl_bin', 'generated_entities.dl_bin', 'generated_damage_settings.dl_bin')
+    $f = @('generated_projectile_settings.dl_bin', 'generated_entities.dl_bin')
     if ($V -eq 'realistic') { $f += 'generated_explosion_settings.dl_bin' }
     return $f
 }

@@ -9,10 +9,14 @@ Arsenal, no exit-and-relaunch dance — enable, deploy, launch.
 
 ## Manual file swap (no Ordnance)
 
-Prefer to skip Ordnance? The v4.0.0 release is the post-EAC manual swap: grab a
-zip from [the v4.0.0 release](https://github.com/Cavadus/dominator-rechamber/releases/tag/v4.0.0),
-close the game, back up the two patch files in the data folder, and swap in the
-ones from the archive. Same rechamber, no manager required.
+The same edits are sealed tables in `regular/` and `realistic/`, built from the
+stat plans against game build 26251122. `rechamber.sh` and `rechamber.ps1`
+refuse any other build. Close the game, then run the script. The v4.0.0 release
+is the previous game build; do not install those tables on 26251122.
+
+Ordnance reads `regular/stat-plan.json` and `realistic/stat-plan.json`. The
+manual swap copies the `.dl_bin` files next to them. Neither variant edits the
+damage table.
 
 ## Install
 
@@ -33,7 +37,8 @@ just past its own blast edge (7 m for Regular, 3 m for Realistic).
 ## Firing sound (optional, pick one)
 
 Darktide, Space Marine 2, Boltgun, or Necromunda. Each is a full Wwise bank for
-`content/audio/wep_jar5_dominator`, selected in Ordnance's option menu.
+`content/audio/wep_jar5_dominator`. The path record uses the same type tag as the
+stock bank, so the swap stays on the Dominator and the other weapons keep their audio.
 
 ## Source
 

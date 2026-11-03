@@ -1,0 +1,146 @@
+[
+ {
+  "file": "generated_projectile_settings.dl_bin",
+  "type": "0xbd4042c2",
+  "stride": 272,
+  "record": 180,
+  "offset": 60,
+  "op": "set",
+  "kind": "u32",
+  "value": 165
+ },
+ {
+  "file": "generated_projectile_settings.dl_bin",
+  "type": "0xbd4042c2",
+  "stride": 272,
+  "record": 180,
+  "offset": 144,
+  "op": "set",
+  "kind": "u32",
+  "value": 389
+ },
+ {
+  "file": "generated_projectile_settings.dl_bin",
+  "type": "0xbd4042c2",
+  "stride": 272,
+  "record": 180,
+  "offset": 156,
+  "op": "set",
+  "kind": "u32",
+  "value": 0
+ },
+ {
+  "file": "generated_projectile_settings.dl_bin",
+  "type": "0xbd4042c2",
+  "stride": 272,
+  "record": 180,
+  "offset": 32,
+  "op": "set",
+  "kind": "f32",
+  "value": 380
+ },
+ {
+  "file": "generated_projectile_settings.dl_bin",
+  "type": "0xbd4042c2",
+  "stride": 272,
+  "record": 180,
+  "offset": 52,
+  "op": "set",
+  "kind": "f32",
+  "value": 1.4
+ },
+ {
+  "file": "generated_projectile_settings.dl_bin",
+  "type": "0xbd4042c2",
+  "stride": 272,
+  "record": 180,
+  "offset": 160,
+  "op": "set",
+  "kind": "f32",
+  "value": 7
+ },
+ {
+  "file": "generated_entities.dl_bin",
+  "type": "0x88e4dbb1",
+  "buckets": 746,
+  "stride": 1240,
+  "lo": "0xD9FA1E36",
+  "hi": "0x80F1A156",
+  "offset": 0,
+  "op": "mul",
+  "kind": "f32",
+  "value": 1.2
+ },
+ {
+  "file": "generated_entities.dl_bin",
+  "type": "0x88e4dbb1",
+  "buckets": 746,
+  "stride": 1240,
+  "lo": "0xD9FA1E36",
+  "hi": "0x80F1A156",
+  "offset": 4,
+  "op": "mul",
+  "kind": "f32",
+  "value": 1.2
+ },
+ {
+  "file": "generated_entities.dl_bin",
+  "type": "0x88e4dbb1",
+  "buckets": 746,
+  "stride": 1240,
+  "lo": "0xD9FA1E36",
+  "hi": "0x80F1A156",
+  "offset": 28,
+  "op": "mul",
+  "kind": "f32",
+  "value": 1.2
+ },
+ {
+  "file": "generated_entities.dl_bin",
+  "type": "0x88e4dbb1",
+  "buckets": 746,
+  "stride": 1240,
+  "lo": "0xD9FA1E36",
+  "hi": "0x80F1A156",
+  "offset": 32,
+  "op": "mul",
+  "kind": "f32",
+  "value": 1.2
+ },
+ {
+  "file": "generated_entities.dl_bin",
+  "type": "0x88e4dbb1",
+  "buckets": 746,
+  "stride": 1240,
+  "lo": "0xD9FA1E36",
+  "hi": "0x80F1A156",
+  "offset": 144,
+  "op": "set",
+  "kind": "u32",
+  "value": 1
+ },
+ {
+  "file": "generated_entities.dl_bin",
+  "type": "0xfb8d88a3",
+  "buckets": 560,
+  "stride": 160,
+  "lo": "0xD9FA1E36",
+  "hi": "0x80F1A156",
+  "offset": 16,
+  "op": "set",
+  "kind": "u32",
+  "value": 6
+ },
+ {
+  "file": "generated_entities.dl_bin",
+  "type": "0xfb8d88a3",
+  "buckets": 560,
+  "stride": 160,
+  "lo": "0xD9FA1E36",
+  "hi": "0x80F1A156",
+  "offset": 20,
+  "op": "set",
+  "kind": "u32",
+  "value": 6
+ }
+]
