@@ -38,19 +38,19 @@ declare -A MOD_MD5=(
   [realistic/generated_projectile_settings.dl_bin]=1e9481824c59ad4ae74c99d9492d29d5
   [realistic/generated_entities.dl_bin]=bc00b862f973c57e3850b278a970def1
   [realistic/generated_explosion_settings.dl_bin]=b4f518ab1306c12af045975f1d03c6d9
-  [audio/boltgun/9ba626afa44a3aa3.patch_0]=216b992676c3aae91d6ae2d92fe21974
-  [audio/darktide/9ba626afa44a3aa3.patch_0]=d341fd2a589ca39c419a55c432134ad8
-  [audio/necromunda/9ba626afa44a3aa3.patch_0]=9d4bcfc79ff763849cd720d4fa425360
-  [audio/sm2/9ba626afa44a3aa3.patch_0]=134fb85f4e1cda4d2b1df6422e13a747
+  [audio/boltgun/9ba626afa44a3aa3.patch_0]=c7534d3744fd56a76f7dd942fc74a643
+  [audio/darktide/9ba626afa44a3aa3.patch_0]=88f63d3a6688aa3b467cc62333cce88d
+  [audio/necromunda/9ba626afa44a3aa3.patch_0]=039612c157a2378eb2971caab43231de
+  [audio/sm2/9ba626afa44a3aa3.patch_0]=7d7036581222ff872203ae0d63d364e8
 )
 
 # Firing-sound banks (Wwise, type 0x535a7bd3e650d799) — deployed as a standalone
 # resource patch in data/. Each bank's md5 is verified before it ships.
 declare -A AUDIO_MD5=(
-  [darktide]=d341fd2a589ca39c419a55c432134ad8
-  [sm2]=134fb85f4e1cda4d2b1df6422e13a747
-  [boltgun]=216b992676c3aae91d6ae2d92fe21974
-  [necromunda]=9d4bcfc79ff763849cd720d4fa425360
+  [darktide]=88f63d3a6688aa3b467cc62333cce88d
+  [sm2]=7d7036581222ff872203ae0d63d364e8
+  [boltgun]=c7534d3744fd56a76f7dd942fc74a643
+  [necromunda]=039612c157a2378eb2971caab43231de
 )
 AUDIO_SLOT="9ba626afa44a3aa3"
 AUDIO_TYPE="99d750e6d37b5a53"

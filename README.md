@@ -1,4 +1,4 @@
-# JAR-5 Dominator Rechambered v4.1.0 — Ordnance stat-plan
+# JAR-5 Dominator Rechambered v4.1.1 — Ordnance stat-plan
 
 Rechambers the JAR-5 Dominator to the P/40-K Bolt Pistol's explosive gyrojet warhead.
 
@@ -21,7 +21,7 @@ damage table.
 ## Install
 
 
-1. Grab one of the v4.1.0 archives from the [latest release](https://github.com/Cavadus/dominator-rechamber/releases/latest), and add it to Ordnance.
+1. Grab one of the v4.1.1 archives from the [latest release](https://github.com/Cavadus/dominator-rechamber/releases/latest), and add it to Ordnance.
 2. Enable the variant you want, pick an optional firing sound, and Deploy.
 
 ## Variants
@@ -36,9 +36,10 @@ just past its own blast edge (7 m for Regular, 3 m for Realistic).
 
 ## Firing sound (optional, pick one)
 
-Darktide, Space Marine 2, Boltgun, or Necromunda. Each is a full Wwise bank for
-`content/audio/wep_jar5_dominator`. The path record uses the same type tag as the
-stock bank, so the swap stays on the Dominator and the other weapons keep their audio.
+Darktide, Space Marine 2, Boltgun, or Necromunda. Each starts from the current
+Dominator bank and replaces only the recordings that belong to that gun.
+Shared layers used by other weapons stay stock. The path record uses the stock
+type tag.
 
 ## Source
 
